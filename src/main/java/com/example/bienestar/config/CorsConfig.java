@@ -9,9 +9,13 @@ public class CorsConfig implements WebMvcConfigurer {
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**") // Aplica a todos los endpoints
-                .allowedOrigins("http://localhost:5173", "http://localhost:8080")
+        registry.addMapping("/**")
+                .allowedOrigins(
+                    "https://bienestar-frontend-production.up.railway.app",
+                    "http://localhost:5173"
+                )
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+                .allowedHeaders("*")
                 .allowCredentials(true);
     }
 }
